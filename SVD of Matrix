@@ -1,0 +1,43 @@
+program to perform the svd of a given matrix also reconstruct the
+matrix from the three matrixes obtained after performing SVD.
+
+CODE
+-----
+import  numpy as np
+A=np.array([[2,3],[5,6]])
+print("matrix is \n" ,A)
+U,s,VT=np.linalg.svd(A)
+print("Left singular matrix:")
+print(U)
+print("singular matrix:")
+print(s)
+print("Right singular matrix:")
+print(VT)
+sigma=np.zeros((A.shape[0],A.shape[1]))
+print("sigma : \n",sigma)
+np.fill_diagonal(sigma, s)
+B=U.dot(sigma.dot(VT))
+print("Reconstructed matrix:\n",B)
+
+OUTPUT
+------
+C:\Users\mlm\PycharmProjects\Matrix\venv\Scripts\python.exe C:\Users\mlm\PycharmProjects\Matrix\svd.py 
+matrix is 
+ [[2 3]
+ [5 6]]
+Left singular matrix:
+[[-0.41785681 -0.9085129 ]
+ [-0.9085129   0.41785681]]
+singular matrix:
+[8.59524158 0.34903033]
+Right singular matrix:
+[[-0.62572739 -0.78004181]
+ [ 0.78004181 -0.62572739]]
+sigma : 
+ [[0. 0.]
+ [0. 0.]]
+Reconstructed matrix:
+ [[2. 3.]
+ [5. 6.]]
+
+Process finished with exit code 0
